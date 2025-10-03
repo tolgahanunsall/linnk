@@ -55,6 +55,23 @@ export const VueButton = React.forwardRef<HTMLButtonElement, VueButtonProps>(
       );
     }
 
+    if (variant === "uiverse") {
+      return (
+        <button
+          ref={ref}
+          className={cn(
+            "cursor-pointer font-black text-[18px] rounded-md border-[3px] border-black",
+            "bg-[#fbca1f] px-6 py-2.5 shadow-[0.1em_0.1em_0_0_rgba(0,0,0,1)]",
+            "transition-transform hover:translate-x-[-0.05em] hover:translate-y-[-0.05em] hover:shadow-[0.15em_0.15em_0_0_rgba(0,0,0,1)] active:translate-x-[0.05em] active:translate-y-[0.05em] active:shadow-[0.05em_0.05em_0_0_rgba(0,0,0,1)]",
+            className,
+          )}
+          {...props}
+        >
+          {children}
+        </button>
+      );
+    }
+
     return (
       <button
         ref={ref}
