@@ -59,7 +59,7 @@ export function Header() {
             <Globe className="h-5 w-5" />
           </button>
           <Link to="#get-started" className="hidden sm:block">
-            <VueButton size="md">Sign In</VueButton>
+            <VueButton variant="uiverse" size="md">Sign In</VueButton>
           </Link>
         </div>
       </div>
