@@ -59,7 +59,7 @@ export default function Index() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link to="#upload-section" id="get-started">
-              <VueButton size="lg">Get Started for Free</VueButton>
+              <VueButton variant="uiverse" size="lg">Get Started for Free</VueButton>
             </Link>
             <Link
               to="/pricing"
@@ -139,7 +139,7 @@ export default function Index() {
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link to="#upload-section">
-                <VueButton variant="outline" size="lg">Get Started for Free</VueButton>
+                <VueButton variant="uiverse" size="lg">Get Started for Free</VueButton>
               </Link>
               <Link
                 to="/pricing"
