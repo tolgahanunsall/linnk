@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   darkMode: ["class"],
@@ -13,6 +14,13 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      },
+      boxShadow: {
+        elegant: "0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1)",
+        purple: "0 4px 14px 0 rgba(99,102,241,.25)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
