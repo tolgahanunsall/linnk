@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { VueButton } from "@/components/ui/vue-button";
 
 const plans = {
   monthly: [
@@ -115,11 +115,7 @@ export default function Pricing() {
                 ))}
               </ul>
               <div className="mt-6">
-                <Button
-                  className={`w-full ${p.popular ? "bg-indigo-600 hover:bg-indigo-500" : ""}`}
-                >
-                  {p.cta}
-                </Button>
+                <VueButton className="w-full">{p.cta}</VueButton>
               </div>
             </div>
           ))}
