@@ -107,8 +107,8 @@ export function UploadCenter() {
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-3">
-        <VueButton onClick={handleSummarize}>Summarize</VueButton>
-        <VueButton variant="outline" onClick={handleTranslate}>
+        <VueButton variant="uiverse" onClick={handleSummarize}>Summarize</VueButton>
+        <VueButton variant="uiverse" onClick={handleTranslate}>
           Translate to English
         </VueButton>
       </div>
