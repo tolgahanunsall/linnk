@@ -15,10 +15,10 @@ export function Header() {
         <div className="flex items-center gap-8">
           <Link to="/" className="flex items-center gap-2">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-bold">
-              L
+              Ö
             </span>
             <span className="text-lg font-semibold tracking-tight">
-              Linnk AI
+              ozetle.ai
             </span>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm">
