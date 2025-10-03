@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Globe, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export function Header() {
   return (
@@ -12,11 +13,17 @@ export function Header() {
             <span className="text-lg font-semibold tracking-tight">Linnk AI</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <NavLink to="/tools" className={({ isActive }) =>
-              `inline-flex items-center gap-1 text-gray-600 hover:text-indigo-600 transition-colors ${isActive ? "text-indigo-600" : ""}`
-            }>
-              Tools <ChevronDown className="h-4 w-4 opacity-70" />
-            </NavLink>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-1 text-gray-600 hover:text-indigo-600 transition-colors">
+                Tools <ChevronDown className="h-4 w-4 opacity-70" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <Link to="/tools#translator"><DropdownMenuItem>Document Translator</DropdownMenuItem></Link>
+                <Link to="/tools#summarizer"><DropdownMenuItem>Document Summarizer</DropdownMenuItem></Link>
+                <Link to="/tools#video"><DropdownMenuItem>Video Summarizer</DropdownMenuItem></Link>
+                <Link to="/tools#research"><DropdownMenuItem>Research Assistant</DropdownMenuItem></Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <NavLink to="/pricing" className={({ isActive }) =>
               `text-gray-600 hover:text-indigo-600 transition-colors ${isActive ? "text-indigo-600" : ""}`
             }>

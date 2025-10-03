@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Brain, Globe2, Search, Clock, BookOpen, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { HeroCanvas } from "@/components/site/HeroCanvas";
+import { UploadCenter } from "@/components/site/UploadCenter";
 
 const features = [
   {
@@ -22,11 +24,8 @@ const features = [
 export default function Index() {
   return (
     <div className="relative">
-      {/* Decorative background */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(45rem_45rem_at_top,rgba(99,102,241,0.15),transparent_60%)]" />
-        <div className="absolute -top-24 left-1/2 -z-10 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-indigo-500/30 blur-[140px]" />
-      </div>
+      {/* Decorative 3D canvas */}
+      <HeroCanvas />
 
       {/* Hero */}
       <section className="container relative pt-16 pb-12 sm:pt-24 sm:pb-16">
@@ -105,12 +104,9 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Upload placeholder anchor to avoid dead link */}
+      {/* Upload section */}
       <div id="upload-section" className="container py-16">
-        <div className="rounded-2xl border bg-white p-8 shadow-sm">
-          <h4 className="text-xl font-semibold">Upload Center</h4>
-          <p className="mt-2 text-gray-600">Tell me how uploads should work (formats, limits, target languages), and I will implement it exactly like linnk.ai.</p>
-        </div>
+        <UploadCenter />
       </div>
     </div>
   );
