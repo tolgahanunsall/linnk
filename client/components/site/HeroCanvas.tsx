@@ -16,7 +16,12 @@ function PointsField() {
   }
   const geom = new THREE.BufferGeometry();
   geom.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-  const mat = new THREE.PointsMaterial({ size: 0.035, color: new THREE.Color("#6366F1"), transparent: true, opacity: 0.7 });
+  const mat = new THREE.PointsMaterial({
+    size: 0.035,
+    color: new THREE.Color("#6366F1"),
+    transparent: true,
+    opacity: 0.7,
+  });
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();

@@ -13,10 +13,16 @@ function summarizeLocally(text: string, maxSentences = 3) {
   for (const w of words) freq.set(w, (freq.get(w) || 0) + 1);
   const scored = sentences.map((s) => ({
     s,
-    score: (s.toLowerCase().match(/[\p{L}']+/gu) || []).reduce((acc, w) => acc + (freq.get(w) || 0), 0),
+    score: (s.toLowerCase().match(/[\p{L}']+/gu) || []).reduce(
+      (acc, w) => acc + (freq.get(w) || 0),
+      0,
+    ),
   }));
   scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, maxSentences).map((x) => x.s).join(" ");
+  return scored
+    .slice(0, maxSentences)
+    .map((x) => x.s)
+    .join(" ");
 }
 
 export function UploadCenter() {
@@ -73,13 +79,17 @@ export function UploadCenter() {
   };
 
   const handleTranslate = async () => {
-    toast("To enable high‑quality translation, please connect Zapier and set up DeepL/Google Translate, or provide API credentials.");
+    toast(
+      "To enable high‑quality translation, please connect Zapier and set up DeepL/Google Translate, or provide API credentials.",
+    );
   };
 
   return (
     <div className="rounded-2xl border bg-white p-6 shadow-sm">
       <h4 className="text-xl font-semibold">Upload Center</h4>
-      <p className="mt-1 text-sm text-gray-600">Drag and drop a .txt or .md file, then summarize or translate.</p>
+      <p className="mt-1 text-sm text-gray-600">
+        Drag and drop a .txt or .md file, then summarize or translate.
+      </p>
       <div
         onDragOver={(e) => {
           e.preventDefault();
@@ -91,12 +101,21 @@ export function UploadCenter() {
       >
         <div className="text-center">
           <div className="text-sm font-medium">Drop file here</div>
-          <div className="text-xs text-gray-500">Only .txt and .md supported for now</div>
+          <div className="text-xs text-gray-500">
+            Only .txt and .md supported for now
+          </div>
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-3">
-        <Button onClick={handleSummarize} className="bg-indigo-600 hover:bg-indigo-500">Summarize</Button>
-        <Button variant="outline" onClick={handleTranslate}>Translate to English</Button>
+        <Button
+          onClick={handleSummarize}
+          className="bg-indigo-600 hover:bg-indigo-500"
+        >
+          Summarize
+        </Button>
+        <Button variant="outline" onClick={handleTranslate}>
+          Translate to English
+        </Button>
       </div>
     </div>
   );

@@ -11,14 +11,23 @@ function summarize(text: string, maxSentences = 3) {
   for (const w of words) freq.set(w, (freq.get(w) || 0) + 1);
   const scored = sentences.map((s) => ({
     s,
-    score: (s.toLowerCase().match(/[\p{L}']+/gu) || []).reduce((acc, w) => acc + (freq.get(w) || 0), 0),
+    score: (s.toLowerCase().match(/[\p{L}']+/gu) || []).reduce(
+      (acc, w) => acc + (freq.get(w) || 0),
+      0,
+    ),
   }));
   scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, maxSentences).map((x) => x.s).join(" ");
+  return scored
+    .slice(0, maxSentences)
+    .map((x) => x.s)
+    .join(" ");
 }
 
 export const handleSummarize: RequestHandler = (req, res) => {
-  const { text, maxSentences } = req.body as { text?: string; maxSentences?: number };
+  const { text, maxSentences } = req.body as {
+    text?: string;
+    maxSentences?: number;
+  };
   if (!text || typeof text !== "string") {
     return res.status(400).json({ error: "Missing 'text' in request body" });
   }
