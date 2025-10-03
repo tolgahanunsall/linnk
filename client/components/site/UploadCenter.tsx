@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { VueButton } from "@/components/ui/vue-button";
 import { toast } from "sonner";
 
 function summarizeLocally(text: string, maxSentences = 3) {
@@ -107,15 +107,10 @@ export function UploadCenter() {
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-3">
-        <Button
-          onClick={handleSummarize}
-          className="bg-indigo-600 hover:bg-indigo-500"
-        >
-          Summarize
-        </Button>
-        <Button variant="outline" onClick={handleTranslate}>
+        <VueButton onClick={handleSummarize}>Summarize</VueButton>
+        <VueButton variant="outline" onClick={handleTranslate}>
           Translate to English
-        </Button>
+        </VueButton>
       </div>
     </div>
   );
