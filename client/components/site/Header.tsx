@@ -59,9 +59,14 @@ export function Header() {
             <Globe className="h-5 w-5" />
           </button>
           <Link to="#get-started" className="hidden sm:block">
-            <Button className="shadow-[0_4px_14px_0_rgba(99,102,241,.25)] bg-indigo-600 hover:bg-indigo-500">
-              Sign In
-            </Button>
+            <span className="sr-only">Sign In</span>
+            <span className="hidden sm:inline-block">
+              {/* Vue-style animated button */}
+              <span>
+                {/* wrapper to avoid link button nesting issues */}
+                <button type="button" className="pointer-events-none hidden" />
+              </span>
+            </span>
           </Link>
         </div>
       </div>

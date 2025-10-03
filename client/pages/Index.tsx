@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { VueButton } from "@/components/ui/vue-button";
 import { Brain, Globe2, Search, Clock, BookOpen, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { HeroCanvas } from "@/components/site/HeroCanvas";
@@ -58,9 +59,7 @@ export default function Index() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link to="#upload-section" id="get-started">
-              <Button className="h-12 px-6 text-base shadow-[0_4px_14px_0_rgba(99,102,241,.25)] bg-indigo-600 hover:bg-indigo-500">
-                Get Started for Free
-              </Button>
+              <VueButton size="lg">Get Started for Free</VueButton>
             </Link>
             <Link
               to="/pricing"
@@ -140,9 +139,7 @@ export default function Index() {
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link to="#upload-section">
-                <Button className="h-12 px-6 text-base bg-white text-indigo-700 hover:bg-indigo-50">
-                  Get Started for Free
-                </Button>
+                <VueButton variant="outline" size="lg">Get Started for Free</VueButton>
               </Link>
               <Link
                 to="/pricing"
