@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Globe, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { VueButton } from "@/components/ui/vue-button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -59,14 +60,7 @@ export function Header() {
             <Globe className="h-5 w-5" />
           </button>
           <Link to="#get-started" className="hidden sm:block">
-            <span className="sr-only">Sign In</span>
-            <span className="hidden sm:inline-block">
-              {/* Vue-style animated button */}
-              <span>
-                {/* wrapper to avoid link button nesting issues */}
-                <button type="button" className="pointer-events-none hidden" />
-              </span>
-            </span>
+            <VueButton size="md">Sign In</VueButton>
           </Link>
         </div>
       </div>
