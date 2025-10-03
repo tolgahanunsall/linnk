@@ -8,10 +8,10 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-bold">
-                L
+                Ö
               </span>
               <span className="text-lg font-semibold tracking-tight">
-                Linnk AI
+                ozetle.ai
               </span>
             </div>
             <p className="text-sm text-gray-600 max-w-xs">
@@ -101,7 +101,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t pt-6 text-sm text-gray-500">
-          © {new Date().getFullYear()} Linnk AI. All rights reserved.
+          © {new Date().getFullYear()} ozetle.ai. All rights reserved.
         </div>
       </div>
     </footer>
