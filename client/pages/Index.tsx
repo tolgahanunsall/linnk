@@ -135,7 +135,7 @@ export default function Index() {
               Ready to Transform Your Research and Translation?
             </h3>
             <p className="mt-3 text-indigo-100">
-              Join professionals who use Linnk AI to break down language
+              Join professionals who use ozetle.ai to break down language
               barriers and simplify complex documents.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
