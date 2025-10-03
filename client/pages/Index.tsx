@@ -1,61 +1,116 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Brain, Globe2, Search, Clock, BookOpen, Share2 } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const features = [
+  {
+    icon: Brain,
+    title: "Smart Document Analysis",
+    desc: "Extract key insights from research papers, reports, and documents with context-aware AI.",
+  },
+  {
+    icon: Globe2,
+    title: "Accurate Translation",
+    desc: "Translate content across languages while preserving technical context and formatting.",
+  },
+  { icon: Search, title: "Research Assistant", desc: "Accelerate research with literature reviews and citation suggestions." },
+  { icon: Clock, title: "Time-Saving", desc: "Process documents in seconds instead of hours." },
+  { icon: BookOpen, title: "Enhanced Comprehension", desc: "Get concise summaries highlighting key findings." },
+  { icon: Share2, title: "Knowledge Discovery", desc: "Uncover connections with AI-generated maps and graphs." },
+];
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
+    <div className="relative">
+      {/* Decorative background */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(45rem_45rem_at_top,rgba(99,102,241,0.15),transparent_60%)]" />
+        <div className="absolute -top-24 left-1/2 -z-10 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-indigo-500/30 blur-[140px]" />
+      </div>
+
+      {/* Hero */}
+      <section className="container relative pt-16 pb-12 sm:pt-24 sm:pb-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-200">Trusted by 300,000+ professionals</span>
+          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-6xl">
+            Unlock Global Knowledge, Instantly
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-gray-600">
+            Turn language barriers into bridges and complex documents into clarity.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link to="#upload-section" id="get-started">
+              <Button className="h-12 px-6 text-base shadow-[0_4px_14px_0_rgba(99,102,241,.25)] bg-indigo-600 hover:bg-indigo-500">
+                Get Started for Free
+              </Button>
+            </Link>
+            <Link to="/pricing" className="text-indigo-600 hover:text-indigo-500 font-medium">
+              View Pricing →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Logos */}
+      <section className="container py-10">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="text-sm font-medium text-gray-600">Trusted by leading organizations</div>
+          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {["Apple","Google","McKinsey","Anthropic","WPP","Stanford"].map((name) => (
+              <div key={name} className="flex h-16 items-center justify-center rounded-lg border bg-white text-gray-600 shadow-sm">
+                <span className="text-sm font-semibold opacity-70">{name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="container py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Powerful Features</h2>
+          <p className="mt-3 text-gray-600">Advanced AI tools designed for academic and professional excellence.</p>
+        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {features.map((f) => (
+            <div key={f.title} className="group rounded-2xl border bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-300">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-indigo-50 text-indigo-600">
+                <f.icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-gray-900 group-hover:text-indigo-600">{f.title}</h3>
+              <p className="mt-2 text-sm text-gray-600">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative overflow-hidden py-16">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 to-purple-600" />
+        <div className="container relative">
+          <div className="mx-auto max-w-3xl text-center text-white">
+            <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">Ready to Transform Your Research and Translation?</h3>
+            <p className="mt-3 text-indigo-100">Join professionals who use Linnk AI to break down language barriers and simplify complex documents.</p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link to="#upload-section">
+                <Button className="h-12 px-6 text-base bg-white text-indigo-700 hover:bg-indigo-50">
+                  Get Started for Free
+                </Button>
+              </Link>
+              <Link to="/pricing" className="font-medium text-white/90 hover:text-white">
+                View Pricing →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Upload placeholder anchor to avoid dead link */}
+      <div id="upload-section" className="container py-16">
+        <div className="rounded-2xl border bg-white p-8 shadow-sm">
+          <h4 className="text-xl font-semibold">Upload Center</h4>
+          <p className="mt-2 text-gray-600">Tell me how uploads should work (formats, limits, target languages), and I will implement it exactly like linnk.ai.</p>
+        </div>
       </div>
     </div>
   );
