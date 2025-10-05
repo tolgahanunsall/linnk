@@ -13,6 +13,7 @@ import Pricing from "./pages/Pricing";
 import Tools from "./pages/Tools";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
 
 declare global {
   interface Window {
@@ -25,6 +26,7 @@ const queryClient = new QueryClient();
 const AppLayout = ({ children }: { children: React.ReactNode }) => (
   <div className="min-h-screen flex flex-col bg-background text-foreground">
     <Header />
+    <Breadcrumb />
     <main className="flex-1">{children}</main>
     <Footer />
   </div>
