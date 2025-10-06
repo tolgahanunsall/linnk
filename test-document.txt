@@ -1,0 +1,12 @@
+Bu bir test belgesidir. 
+
+Linnk uygulamasının dosya yükleme özelliğini test etmek için oluşturulmuştur.
+
+Bu belge şunları içerir:
+- Türkçe metin
+- Çoklu paragraf
+- Özel karakterler: ç, ğ, ı, ö, ş, ü
+- Sayılar: 1, 2, 3
+- Noktalama işaretleri: ., ,, !, ?
+
+Bu belgeyi yükleyip özetleme ve çeviri özelliklerini test edebilirsiniz.

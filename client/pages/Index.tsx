@@ -4,6 +4,8 @@ import { Brain, Globe2, Search, Clock, BookOpen, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { HeroCanvas } from "@/components/site/HeroCanvas";
 import { UploadCenter } from "@/components/site/UploadCenter";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const features = [
   {
@@ -39,6 +41,23 @@ const features = [
 ];
 
 export default function Index() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle anchor navigation
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="relative">
       {/* Decorative 3D canvas */}

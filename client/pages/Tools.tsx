@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FileText, Globe, Video, Search, Network, Quote, Upload, Download, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "sonner";
 
 const tools = [
   {
@@ -57,6 +58,7 @@ const tools = [
 
 export default function Tools() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Handle anchor navigation
@@ -72,6 +74,29 @@ export default function Tools() {
       }
     }
   }, [location]);
+
+  const handleTryTool = (toolId: string) => {
+    // Navigate to home page with upload section focused
+    navigate('/#upload-section');
+    
+    // Show a toast message
+    toast.info(`Upload a document to try ${tools.find(t => t.id === toolId)?.title || 'this tool'}`);
+    
+    // Scroll to upload section after navigation
+    setTimeout(() => {
+      const uploadSection = document.getElementById('upload-section');
+      if (uploadSection) {
+        uploadSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 100);
+  };
+
+  const handleLearnMore = (toolId: string) => {
+    toast.info(`Learn more about ${tools.find(t => t.id === toolId)?.title || 'this tool'} - Feature coming soon!`);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -128,11 +153,19 @@ export default function Tools() {
                       </ul>
                     </div>
                     <div className="flex flex-col gap-3">
-                      <Button className="w-full" size="lg">
+                      <Button 
+                        className="w-full" 
+                        size="lg"
+                        onClick={() => handleTryTool(tool.id)}
+                      >
                         <Upload className="mr-2 h-4 w-4" />
                         Try {tool.title}
                       </Button>
-                      <Button variant="outline" className="w-full">
+                      <Button 
+                        variant="outline" 
+                        className="w-full"
+                        onClick={() => handleLearnMore(tool.id)}
+                      >
                         <Zap className="mr-2 h-4 w-4" />
                         Learn More
                       </Button>

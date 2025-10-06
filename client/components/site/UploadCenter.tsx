@@ -121,6 +121,11 @@ export function UploadCenter() {
   };
 
   const handleTranslate = async () => {
+    if (!text.trim()) {
+      toast.error("Please upload a file first");
+      return;
+    }
+    
     toast(
       "To enable high‑quality translation, please connect Zapier and set up DeepL/Google Translate, or provide API credentials.",
     );
