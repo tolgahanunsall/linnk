@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { FileText, Globe, Video, Search, Network, Quote, Upload, Download, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -193,8 +193,8 @@ export default function Tools() {
                 <Download className="mr-2 h-4 w-4" />
                 Get Started Free
               </Button>
-              <Button size="lg" variant="ghost" className="text-white hover:text-indigo-100">
-                View Pricing →
+              <Button asChild size="lg" variant="ghost" className="text-white hover:text-indigo-100">
+                <Link to="/pricing">View Pricing →</Link>
               </Button>
             </div>
           </div>

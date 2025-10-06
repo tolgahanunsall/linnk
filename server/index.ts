@@ -4,6 +4,7 @@ import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleSummarize } from "./routes/summarize";
 import { handleTranslate } from "./routes/translate";
+import { createCheckoutSession, stripeWebhook } from "./routes/checkout";
 
 export function createServer() {
   const app = express();
@@ -22,6 +23,10 @@ export function createServer() {
   app.get("/api/demo", handleDemo);
   app.post("/api/summarize", handleSummarize);
   app.post("/api/translate", handleTranslate);
+
+  // Payments
+  app.post("/api/checkout", createCheckoutSession);
+  app.post("/api/webhook", stripeWebhook);
 
   return app;
 }

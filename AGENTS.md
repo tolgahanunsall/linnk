@@ -162,3 +162,24 @@ const data: MyRouteResponse = await response.json();
 - Production-ready with multiple deployment options
 - Comprehensive UI component library included
 - Type-safe API communication via shared interfaces
+
+## Payments & Environment Setup
+
+Create a `.env` (server) and `.env.local` (client/Vite) with the following variables. Keep secrets out of version control.
+
+Server (.env):
+- `STRIPE_SECRET_KEY=` (from Stripe Dashboard)
+- `PING_MESSAGE=ping` (optional)
+- `LIBRE_TRANSLATE_URL=https://libretranslate.de` (optional)
+- `LIBRE_TRANSLATE_API_KEY=` (optional)
+
+Client (.env.local):
+- `VITE_STRIPE_PRICE_PRO_MONTHLY=`
+- `VITE_STRIPE_PRICE_PRO_YEARLY=`
+- `VITE_STRIPE_PRICE_TEAM_MONTHLY=`
+- `VITE_STRIPE_PRICE_TEAM_YEARLY=`
+
+Notes:
+- Pricing buttons are disabled if Price IDs are missing.
+- Successful/cancelled checkout redirects back to `/pricing?status=success|cancel` and shows a toast.
+- Webhook (optional): `stripe listen --forward-to localhost:8080/api/webhook`.
